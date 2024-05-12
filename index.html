@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Тапалка</title>
+<style>
+  body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f7f7f7;
+  }
+
+  .coin {
+    width: 30%; /* Ширина монетки как процент от ширины экрана */
+    padding-bottom: 30%; /* Высота равна ширине для сохранения пропорций */
+    background-color: #f0e68c;
+    border-radius: 50%; /* Делаем монетку круглой */
+    box-shadow: 0px 0px 10px #888888;
+    position: relative; /* Для позиционирования счетчика относительно монетки */
+  }
+
+  #counter {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 16px;
+  }
+
+  /* Медиазапрос для адаптации под мобильные устройства */
+  @media (max-width: 600px) {
+    .coin {
+      width: 50%;
+      padding-bottom: 50%;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="coin" id="coinButton">
+  <div id="counter">0</div>
+</div>
+
+<script>
+  let count = 0;
+  const counterElement = document.getElementById('counter');
+  const coinButton = document.getElementById('coinButton');
+
+  coinButton.onclick = function() {
+    count++;
+    counterElement.textContent = count;
+  };
+</script>
+
+</body>
+</html>
